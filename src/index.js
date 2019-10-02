@@ -42,22 +42,22 @@ function multiplyArrayByDigit(numArray,digit, multiplyResultArray, shift=0) {
   for (let i = 0; i < shift; i++){
     multiplyResultArray.push(0);
   }
-  let owerflow = 0;
+  let overflow = 0;
   let tmpResult = 0;
   for (let i = 0; i < numArray.length; i++) {
-    tmpResult = numArray[i] * digit + owerflow;
+    tmpResult = numArray[i] * digit + overflow;
     multiplyResultArray.push(tmpResult % 10);
-    owerflow = Math.floor(tmpResult / 10);
+    overflow = Math.floor(tmpResult / 10);
   }
-  if (owerflow != 0) {
-    multiplyResultArray.push(owerflow);
+  if (overflow != 0) {
+    multiplyResultArray.push(overflow);
   }
 }
 
 function sumArraysByDigit(sumArray,additionArray) {
   let maxLength = Math.max(sumArray.length, additionArray.length);
   let tmpResult = 0;
-  let owerflow = 0;
+  let overflow = 0;
   for (let i = 0; i < maxLength; i++) {
     if(sumArray[i] === undefined){
       sumArray[i] = 0;
@@ -65,11 +65,11 @@ function sumArraysByDigit(sumArray,additionArray) {
     if(additionArray[i] === undefined){
       additionArray[i] = 0;
     }
-    tmpResult = sumArray[i] + additionArray[i] + owerflow;
+    tmpResult = sumArray[i] + additionArray[i] + overflow;
     sumArray[i] = tmpResult % 10;
-    owerflow = Math.floor(tmpResult / 10);
+    overflow = Math.floor(tmpResult / 10);
   }
-  if (owerflow != 0) {
-    sumArray.push(owerflow);
+  if (overflow != 0) {
+    sumArray.push(overflow);
   }
 }
